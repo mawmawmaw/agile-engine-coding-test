@@ -1,0 +1,166 @@
+/**
+ * The menu is technically the header of the site, it contains the styles for the drop down of the Search Bar.
+ *
+ */
+
+$lineHeightForNav: 70px;
+$lineHeightForSearch: 50px;
+
+
+header.menu {
+
+    // ...
+    width: 100%;
+    position: relative;
+    z-index: 10;
+
+    div.menu-container {
+        width: 100%;
+        background-color: #040a2b;
+        padding: 0 20px;
+        text-align: left;
+        
+        div.menu-holder {
+            position: relative;
+            width: 100%;
+            max-width: $siteWidth;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 24px;
+            line-height: $lineHeightForNav;
+            color: white;
+            text-align: left;
+            display: inline-block;
+        }
+        nav {
+            display: inline-block;
+            margin-left: 60px;
+
+            i { 
+                color: white; 
+                font-size: 30px;
+                line-height: $lineHeightForNav;
+            }
+            i.search {
+                position: absolute;
+                right: 10px;
+                top: 0;
+            }
+
+            a.nav-item {
+                font-family: Helvetica, Arial, Sans-Serif;
+                font-size: 17px;
+                line-height: $lineHeightForNav;
+                text-transform: uppercase;
+                text-decoration: none;
+                white-space: nowrap;
+                border-bottom: 1px solid transparent;
+                color: #FFF;
+                margin-right: 20px;
+            }
+        }
+    }
+
+    div.search-container {
+        position: absolute;
+        background-color: white;
+        z-index: 20;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        width: 100%;
+        padding: 5px;
+        background-color: white;
+        border-bottom: 1px solid #CCC;
+        display: none;
+        &.showing { display: block; }
+
+        /* ADDED STYLES */
+        .results-container {
+            display: none;
+            &.showing{
+                display: block;
+            }
+            .results-data {
+                padding: 20px;
+                border-bottom: 1px solid #cccccc;
+                span{
+                    font-size: 24px;
+                    font-weight: bold;
+                }
+            }
+            .results-display{
+                display: flex;
+                justify-content: center;
+                gap: 20px;
+                padding: 20px;
+                overflow-x: auto;
+                .result-item {
+                    min-width: 200px;
+                    width: 200px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: wrap;
+                    align-content: center;
+                    justify-content: flex-start;
+                    align-items: center;
+                    padding: 20px;
+                    &:hover{
+                        background-color: #CCC;
+                        border-radius: 4px;
+                        cursor: pointer;
+                    }
+                    img {
+                        max-height: 100px;
+                    }
+                    span.result-item-title {
+                        height: 50px;
+                        margin: 10px 0;
+                        text-align: center;
+                        font-size: 16px;
+                        font-weight: bold;
+                    }
+                    span.result-item-price {
+                        font-size: 20px;
+                        font-weight: bold;
+                        margin: 10px 0;
+                    }
+                    span.result-item-description {
+                        text-align: center;
+                        height: 50px;
+                        word-wrap: break-word;
+                        overflow: hidden;
+                        position: relative;
+                        &::after{
+                            content: '...';
+                            position: absolute;
+                            bottom: -4px;
+                            right: 2px;
+                        }
+                    }
+                }
+
+            }
+        }
+        /* END ADDED STYLES */
+        
+        input[type='text'] {
+            min-width: 100%;
+            font-size: 36px;
+            line-height: $lineHeightForSearch;
+            border: 1px solid #CCC;
+            padding: 0 10px;
+        }
+
+        i.close {
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            font-size: 36px;
+            line-height: $lineHeightForSearch;
+        }
+    }
+    
+
+}
